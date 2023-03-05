@@ -26,8 +26,8 @@
 		34AE274929AB934B00D42CDB /* SwiftClassItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AE274829AB934B00D42CDB /* SwiftClassItem.swift */; };
 		34AE274A29AB934B00D42CDB /* SwiftClassItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AE274829AB934B00D42CDB /* SwiftClassItem.swift */; };
 		34AE274C29AFC8F600D42CDB /* testcode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AE274B29AFC8F600D42CDB /* testcode.swift */; };
-		34AE274F29B0AF8200D42CDB /* accountList_2658E1933AAE6D178A7ACEFA36B4F082.json in Resources */ = {isa = PBXBuildFile; fileRef = 34AE274E29B0AF8200D42CDB /* accountList_2658E1933AAE6D178A7ACEFA36B4F082.json */; };
-		34AE275029B0AF8200D42CDB /* accountList_2658E1933AAE6D178A7ACEFA36B4F082.json in Resources */ = {isa = PBXBuildFile; fileRef = 34AE274E29B0AF8200D42CDB /* accountList_2658E1933AAE6D178A7ACEFA36B4F082.json */; };
+		34AE274F29B0AF8200D42CDB /* accountList.json in Resources */ = {isa = PBXBuildFile; fileRef = 34AE274E29B0AF8200D42CDB /* accountList.json */; };
+		34AE275029B0AF8200D42CDB /* accountList.json in Resources */ = {isa = PBXBuildFile; fileRef = 34AE274E29B0AF8200D42CDB /* accountList.json */; };
 		34AE275229B0B00C00D42CDB /* donuts.json in Resources */ = {isa = PBXBuildFile; fileRef = 34AE275129B0B00C00D42CDB /* donuts.json */; };
 		34AE275329B0B00C00D42CDB /* donuts.json in Resources */ = {isa = PBXBuildFile; fileRef = 34AE275129B0B00C00D42CDB /* donuts.json */; };
 /* End PBXBuildFile section */
@@ -69,7 +69,7 @@
 		34AE274529AB931500D42CDB /* SwiftClassHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftClassHeader.swift; sourceTree = "<group>"; };
 		34AE274829AB934B00D42CDB /* SwiftClassItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftClassItem.swift; sourceTree = "<group>"; };
 		34AE274B29AFC8F600D42CDB /* testcode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testcode.swift; sourceTree = "<group>"; };
-		34AE274E29B0AF8200D42CDB /* accountList_2658E1933AAE6D178A7ACEFA36B4F082.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = accountList_2658E1933AAE6D178A7ACEFA36B4F082.json; sourceTree = "<group>"; };
+		34AE274E29B0AF8200D42CDB /* accountList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = accountList.json; sourceTree = "<group>"; };
 		34AE275129B0B00C00D42CDB /* donuts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = donuts.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -168,7 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				34AE275129B0B00C00D42CDB /* donuts.json */,
-				34AE274E29B0AF8200D42CDB /* accountList_2658E1933AAE6D178A7ACEFA36B4F082.json */,
+				34AE274E29B0AF8200D42CDB /* accountList.json */,
 			);
 			path = TestJson;
 			sourceTree = "<group>";
@@ -279,7 +279,7 @@
 			files = (
 				34AE275229B0B00C00D42CDB /* donuts.json in Resources */,
 				34AE271829A8FAC700D42CDB /* Preview Assets.xcassets in Resources */,
-				34AE274F29B0AF8200D42CDB /* accountList_2658E1933AAE6D178A7ACEFA36B4F082.json in Resources */,
+				34AE274F29B0AF8200D42CDB /* accountList.json in Resources */,
 				34AE271529A8FAC700D42CDB /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -289,7 +289,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				34AE275329B0B00C00D42CDB /* donuts.json in Resources */,
-				34AE275029B0AF8200D42CDB /* accountList_2658E1933AAE6D178A7ACEFA36B4F082.json in Resources */,
+				34AE275029B0AF8200D42CDB /* accountList.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
