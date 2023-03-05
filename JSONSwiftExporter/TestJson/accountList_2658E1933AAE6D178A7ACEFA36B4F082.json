@@ -1,0 +1,16 @@
+       {
+          "accountId": "800231452496310",
+          "balance": 1000.44,
+          "billPaymentAllowed": "N",
+          "currency": "EUR",
+          "iban": "BG21UBBSXXXXXXXXXXXX10",
+          "paymentStatus": "Transact",
+          "tdSetup": "Y",
+          "typeBG": "РАЗПЛАЩАТЕЛНА СМЕТКА",
+          "typeEN": "CURRENT ACCOUNT",
+          "workingbalance": 1000.44,
+          "multibankingAccount": false,
+          "logoUrl": null,
+          "bankId": null,
+          "bankName": ""
+        }
