@@ -1,6 +1,6 @@
 //
 //  SwiftClassItem.swift
-//  JSONClassExporter
+//  JSONSwiftExporter
 //
 //  Created by Jonathan French on 26.02.23.
 //
@@ -78,6 +78,6 @@ struct SwiftClassItem: View {
 
 //struct SwiftClassItem_Previews: PreviewProvider {
 //    static var previews: some View {
-//        SwiftClassItem(manager: AppManager(document: JSONClassExporterDocument(text: ""), swiftDocument: SwiftDocument(text: "")))
+//        SwiftClassItem(manager: AppManager(document: JSONSwiftExporterDocument(text: ""), swiftDocument: SwiftDocument(text: "")))
 //    }
 //}

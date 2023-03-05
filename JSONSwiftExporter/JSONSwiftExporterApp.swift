@@ -1,6 +1,6 @@
 //
-//  JSONClassExporterApp.swift
-//  JSONClassExporter
+//  JSONSwiftExporterApp.swift
+//  JSONSwiftExporter
 //
 //  Created by Jonathan French on 24.02.23.
 //

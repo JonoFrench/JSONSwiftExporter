@@ -1,14 +1,14 @@
 //
-//  JSONClassExporterTests.swift
-//  JSONClassExporterTests
+//  JSONSwiftExporterTests.swift
+//  JSONSwiftExporterTests
 //
 //  Created by Jonathan French on 24.02.23.
 //
 
 import XCTest
-@testable import JSONClassExporter
+@testable import JSONSwiftExporter
 
-final class JSONClassExporterTests: XCTestCase {
+final class JSONSwiftExporterTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.

@@ -1,6 +1,6 @@
 //
 //  ContentView.swift
-//  JSONClassExporter
+//  JSONSwiftExporter
 //
 //  Created by Jonathan French on 24.02.23.
 //

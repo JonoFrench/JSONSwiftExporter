@@ -1,6 +1,6 @@
 //
 //  SwiftClassHeader.swift
-//  JSONClassExporter
+//  JSONSwiftExporter
 //
 //  Created by Jonathan French on 26.02.23.
 //
@@ -26,6 +26,6 @@ struct SwiftClassHeader: View {
 
 //struct SwiftClassHeader_Previews: PreviewProvider {
 //    static var previews: some View {
-//        SwiftClassHeader(manager: AppManager(document: JSONClassExporterDocument(text: ""), swiftDocument: SwiftDocument(text: "")))
+//        SwiftClassHeader(manager: AppManager(document: JSONSwiftExporterDocument(text: ""), swiftDocument: SwiftDocument(text: "")))
 //    }
 //}

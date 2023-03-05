@@ -1,13 +1,13 @@
 //
-//  JSONClassExporterUITestsLaunchTests.swift
-//  JSONClassExporterUITests
+//  JSONSwiftExporterUITestsLaunchTests.swift
+//  JSONSwiftExporterUITests
 //
 //  Created by Jonathan French on 24.02.23.
 //
 
 import XCTest
 
-final class JSONClassExporterUITestsLaunchTests: XCTestCase {
+final class JSONSwiftExporterUITestsLaunchTests: XCTestCase {
 
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true
