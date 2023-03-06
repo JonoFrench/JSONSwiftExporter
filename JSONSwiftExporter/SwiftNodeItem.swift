@@ -1,5 +1,5 @@
 //
-//  SwiftClassItem.swift
+//  SwiftNodeItem.swift
 //  JSONSwiftExporter
 //
 //  Created by Jonathan French on 26.02.23.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SwiftClassItem: View {
+struct SwiftNodeItem: View {
     @State var manager: AppManager
     @Binding var property: SwiftNodeProperties
     
@@ -40,6 +40,10 @@ struct SwiftClassItem: View {
                 .pickerStyle(.menu)
                     .foregroundColor(.white)
 
+                if (property.propertyType == .Array) {
+                    Text(property.childNode!.nodeName).foregroundColor(.white)
+
+                }
                 Spacer()
             }
             HStack {

@@ -38,7 +38,7 @@ struct ContentView: View {
                 Spacer()
 
                 VStack {
-                    SwiftClassHeader(manager: appManager)
+                    SwiftNodeHeader(manager: appManager)
                     Spacer()
                     if (isLoaded) {
                         Text("Properties").font(.title)
@@ -46,7 +46,7 @@ struct ContentView: View {
                     }
                     List {
                         ForEach($appManager.swiftNode.properties) { prop in
-                            SwiftClassItem(manager: appManager, property: prop)
+                            SwiftNodeItem(manager: appManager, property: prop)
 //                            ForEach(prop.childProperties) { prop2 in
 //                                    SwiftClassItem(manager: manager, property: prop2)
 //                                }

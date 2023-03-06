@@ -21,10 +21,10 @@
 		34AE274129A9036400D42CDB /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AE273F29A9036400D42CDB /* AppManager.swift */; };
 		34AE274329AB925900D42CDB /* SwiftNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AE274229AB925900D42CDB /* SwiftNode.swift */; };
 		34AE274429AB925900D42CDB /* SwiftNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AE274229AB925900D42CDB /* SwiftNode.swift */; };
-		34AE274629AB931500D42CDB /* SwiftClassHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AE274529AB931500D42CDB /* SwiftClassHeader.swift */; };
-		34AE274729AB931500D42CDB /* SwiftClassHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AE274529AB931500D42CDB /* SwiftClassHeader.swift */; };
-		34AE274929AB934B00D42CDB /* SwiftClassItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AE274829AB934B00D42CDB /* SwiftClassItem.swift */; };
-		34AE274A29AB934B00D42CDB /* SwiftClassItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AE274829AB934B00D42CDB /* SwiftClassItem.swift */; };
+		34AE274629AB931500D42CDB /* SwiftNodeHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AE274529AB931500D42CDB /* SwiftNodeHeader.swift */; };
+		34AE274729AB931500D42CDB /* SwiftNodeHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AE274529AB931500D42CDB /* SwiftNodeHeader.swift */; };
+		34AE274929AB934B00D42CDB /* SwiftNodeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AE274829AB934B00D42CDB /* SwiftNodeItem.swift */; };
+		34AE274A29AB934B00D42CDB /* SwiftNodeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AE274829AB934B00D42CDB /* SwiftNodeItem.swift */; };
 		34AE274C29AFC8F600D42CDB /* testcode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AE274B29AFC8F600D42CDB /* testcode.swift */; };
 		34AE274F29B0AF8200D42CDB /* accountList.json in Resources */ = {isa = PBXBuildFile; fileRef = 34AE274E29B0AF8200D42CDB /* accountList.json */; };
 		34AE275029B0AF8200D42CDB /* accountList.json in Resources */ = {isa = PBXBuildFile; fileRef = 34AE274E29B0AF8200D42CDB /* accountList.json */; };
@@ -66,8 +66,8 @@
 		34AE273C29A8FED200D42CDB /* SwiftDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftDocument.swift; sourceTree = "<group>"; };
 		34AE273F29A9036400D42CDB /* AppManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
 		34AE274229AB925900D42CDB /* SwiftNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftNode.swift; sourceTree = "<group>"; };
-		34AE274529AB931500D42CDB /* SwiftClassHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftClassHeader.swift; sourceTree = "<group>"; };
-		34AE274829AB934B00D42CDB /* SwiftClassItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftClassItem.swift; sourceTree = "<group>"; };
+		34AE274529AB931500D42CDB /* SwiftNodeHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftNodeHeader.swift; sourceTree = "<group>"; };
+		34AE274829AB934B00D42CDB /* SwiftNodeItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftNodeItem.swift; sourceTree = "<group>"; };
 		34AE274B29AFC8F600D42CDB /* testcode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testcode.swift; sourceTree = "<group>"; };
 		34AE274E29B0AF8200D42CDB /* accountList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = accountList.json; sourceTree = "<group>"; };
 		34AE275129B0B00C00D42CDB /* donuts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = donuts.json; sourceTree = "<group>"; };
@@ -132,8 +132,8 @@
 				34AE273C29A8FED200D42CDB /* SwiftDocument.swift */,
 				34AE273F29A9036400D42CDB /* AppManager.swift */,
 				34AE274229AB925900D42CDB /* SwiftNode.swift */,
-				34AE274529AB931500D42CDB /* SwiftClassHeader.swift */,
-				34AE274829AB934B00D42CDB /* SwiftClassItem.swift */,
+				34AE274529AB931500D42CDB /* SwiftNodeHeader.swift */,
+				34AE274829AB934B00D42CDB /* SwiftNodeItem.swift */,
 				34AE274B29AFC8F600D42CDB /* testcode.swift */,
 			);
 			path = JSONSwiftExporter;
@@ -308,8 +308,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				34AE271129A8FAC300D42CDB /* JSONSwiftExporterDocument.swift in Sources */,
-				34AE274929AB934B00D42CDB /* SwiftClassItem.swift in Sources */,
-				34AE274629AB931500D42CDB /* SwiftClassHeader.swift in Sources */,
+				34AE274929AB934B00D42CDB /* SwiftNodeItem.swift in Sources */,
+				34AE274629AB931500D42CDB /* SwiftNodeHeader.swift in Sources */,
 				34AE274029A9036400D42CDB /* AppManager.swift in Sources */,
 				34AE274329AB925900D42CDB /* SwiftNode.swift in Sources */,
 				34AE273D29A8FED200D42CDB /* SwiftDocument.swift in Sources */,
@@ -323,8 +323,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				34AE274729AB931500D42CDB /* SwiftClassHeader.swift in Sources */,
-				34AE274A29AB934B00D42CDB /* SwiftClassItem.swift in Sources */,
+				34AE274729AB931500D42CDB /* SwiftNodeHeader.swift in Sources */,
+				34AE274A29AB934B00D42CDB /* SwiftNodeItem.swift in Sources */,
 				34AE274129A9036400D42CDB /* AppManager.swift in Sources */,
 				34AE272429A8FAC700D42CDB /* JSONClassExporterTests.swift in Sources */,
 				34AE274429AB925900D42CDB /* SwiftNode.swift in Sources */,

@@ -9,11 +9,9 @@ import Foundation
 import SwiftUI
 
 class AppManager: ObservableObject {
-    //@EnvironmentObject var document: JSONSwiftExporterDocument
     @Published var swiftDocument: SwiftDocument
     @Published var swiftNode: SwiftNode
     init(swiftDocument: SwiftDocument) {
-        //self.document = document
         self.swiftDocument = swiftDocument
         self.swiftNode = SwiftNode()
     }

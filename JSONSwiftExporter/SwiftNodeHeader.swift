@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SwiftClassHeader: View {
+struct SwiftNodeHeader: View {
     @StateObject var manager: AppManager
     var body: some View {
         Spacer()

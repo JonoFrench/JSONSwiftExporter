@@ -47,16 +47,25 @@ class SwiftNode:ObservableObject, Identifiable {
         swiftString += "import Foundation" + "\n\n"
     }
     
+    fileprivate func swiftDec(prop: SwiftNodeProperties) -> String {
+        if prop.propertyType == .Array {
+            return "\("[" + prop.childNode!.nodeName + "]")"
+        }
+        else if prop.propertyType == .Struct {
+            return "\(prop.childNode!.nodeName)"
+        } else {
+            return "\(prop.propertyType.simpleDescription)"
+        }
+    }
+    
     fileprivate func swiftStruct(_ swiftString: inout String, props: [SwiftNodeProperties]) {
-        swiftString += "struct \(nodeName): Codable {" + "\n\n"
+        swiftString += "public struct \(nodeName): Codable {" + "\n\n"
         props.forEach {
-            swiftString += "\t\($0.isVar ? "var" : "let") \($0.hasCodingKey ? $0.codingKey : $0.propertyName): \($0.propertyType != .Array ? $0.propertyType.simpleDescription: "[" + $0.childNode!.nodeName + "]")\($0.isOptional ? "?" : "") " + "\n"
+            swiftString += "\t\($0.isVar ? "var" : "let") \($0.hasCodingKey ? $0.codingKey : $0.propertyName): \(swiftDec(prop: $0))\($0.isOptional ? "?" : "") " + "\n"
         }
         swiftCodingKeys(&swiftString)
         swiftString += "}" + "\n\n"
-
         props.forEach {
-            
             if let child = $0.childNode {
                 child.swiftStruct(&swiftString,props: child.properties)
             }

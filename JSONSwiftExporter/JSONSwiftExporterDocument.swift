@@ -24,13 +24,13 @@ extension UTType {
 struct JSONSwiftExporterDocument: FileDocument {
     var text: String
     var fileName: String?
-
+    
     init(text: String = "Hello, world!") {
         self.text = text
     }
-
+    
     static var readableContentTypes: [UTType] { [.exampleText,.jsonText] }
-
+    
     init(configuration: ReadConfiguration) throws {
         guard let data = configuration.file.regularFileContents,
               let string = String(data: data, encoding: .utf8)
@@ -91,33 +91,28 @@ struct JSONSwiftExporterDocument: FileDocument {
             let newNode = SwiftNode()
             newNode.nodeName = properties.propertyName
             let data = elements[0] as! Dictionary<String, Any?>
-                for jKey in data.keys {
-                    if let keyData = data[jKey] {
-                        print("Array element[\(data) ", terminator: "")
-                        let returnProp = SwiftNodeProperties()
-                        returnProp.propertyName = jKey
-                        returnProp.codingKey = jKey
-                        newNode.properties.append(match(keyData,properties:returnProp,swiftClass: swiftClass))
-                    }
-                }
-            properties.childNode = newNode
-
-        case let elements as [String: Any?]:
-            properties.propertyType = .Array
-            print("Dictionary with \(elements.count) values")
-            let newNode = SwiftNode()
-            let newStruct = elements.first
-            newNode.nodeName = newStruct!.key
-           let data = newStruct!.value as! [Any?]
-            let dataDic = data[0] as! Dictionary<String, Any?>
-            for jKey in dataDic.keys {
-                if let keyData = dataDic[jKey] {
+            for jKey in data.keys {
+                if let keyData = data[jKey] {
+                    print("Array element[\(data) ", terminator: "")
                     let returnProp = SwiftNodeProperties()
                     returnProp.propertyName = jKey
                     returnProp.codingKey = jKey
-                    newNode.properties.append(match(keyData,properties:returnProp,swiftClass: newNode))
+                    newNode.properties.append(match(keyData,properties:returnProp,swiftClass: swiftClass))
                 }
             }
+            properties.childNode = newNode
+            
+        case let elements as [String: Any?]:
+            properties.propertyType = .Struct
+            print("Dictionary with \(elements.count) values")
+            let newNode = SwiftNode()
+            let newStruct = elements.first
+            newNode.nodeName = properties.propertyName
+            let returnProp = SwiftNodeProperties()
+            returnProp.propertyName = newStruct!.key
+            returnProp.codingKey = newStruct!.key
+            let data = newStruct!.value as! [Any?]
+            newNode.properties.append(match(data,properties:returnProp,swiftClass: newNode))
             properties.childNode = newNode
         default:
             properties.propertyType = .String
