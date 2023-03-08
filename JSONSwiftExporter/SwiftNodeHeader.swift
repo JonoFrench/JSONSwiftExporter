@@ -14,11 +14,15 @@ struct SwiftNodeHeader: View {
         VStack {
             HStack {
                 Spacer()
-                Text("Class Name").foregroundColor(.white).font(.title)
-                TextField("Class Name", text: $manager.swiftNode.nodeName).font(.headline)
+                Text("Node Name").foregroundColor(.white).font(.title)
+                TextField("Node Name", text: $manager.swiftNode.nodeName).font(.headline)
                 Spacer()
             }
         }.background(.gray)
+        Toggle("public", isOn: $manager.swiftNode.isPublic)
+            .foregroundColor(.black)
+            .padding(.trailing)
+            .frame(maxWidth: .infinity, alignment: .leading)
         Spacer()
 
     }

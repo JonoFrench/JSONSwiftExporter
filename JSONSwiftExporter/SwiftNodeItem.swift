@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SwiftNodeItem: View {
-    @State var manager: AppManager
+//    @State var manager: AppManager
     @Binding var property: SwiftNodeProperties
     
     var body: some View {
@@ -19,12 +19,12 @@ struct SwiftNodeItem: View {
                 Text(property.propertyName).foregroundColor(.white)
                     .font(.title)
                     .frame(maxWidth: .infinity, alignment: .leading)
-//                TextField("Property Name", text: $property.propertyName)
-//                    .background(.white)
-//                    .border(.black)
-//                    .padding(.trailing)
-//                    .frame(height: 48)
-//                    .disabled(true)
+                //                TextField("Property Name", text: $property.propertyName)
+                //                    .background(.white)
+                //                    .border(.black)
+                //                    .padding(.trailing)
+                //                    .frame(height: 48)
+                //                    .disabled(true)
                 Spacer()
             }.frame(height: 48)
             Spacer()
@@ -38,11 +38,13 @@ struct SwiftNodeItem: View {
                 }
                 .padding(.trailing)
                 .pickerStyle(.menu)
-                    .foregroundColor(.white)
-
+                .foregroundColor(.white)
+                .disabled(property.propertyType == .Array || property.propertyType == .Struct)
                 if (property.propertyType == .Array) {
                     Text(property.childNode!.nodeName).foregroundColor(.white)
-
+                }
+                if (property.propertyType == .Struct) {
+                    Text(property.propertyName).foregroundColor(.white)
                 }
                 Spacer()
             }
@@ -62,21 +64,21 @@ struct SwiftNodeItem: View {
                     .foregroundColor(.white)
                 Spacer()
                 //if property.hasCodingKey {
-                    TextField("Key Name", text: $property.codingKey)
-                        .foregroundColor(.black)
-                        .background(.white)
-                        .border(.black)
-                        .padding(.trailing)
-                        .disabled(!property.hasCodingKey)
-
+                TextField("Key Name", text: $property.codingKey)
+                    .foregroundColor(.black)
+                    .background(.white)
+                    .border(.black)
+                    .padding(.trailing)
+                    .disabled(!property.hasCodingKey)
+                
                 //}
                 Spacer()
-
+                
             }
             Spacer()
             
         }.background(.gray)
-       // Spacer()
+        // Spacer()
     }
 }
 

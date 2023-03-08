@@ -31,14 +31,15 @@ class SwiftNode:ObservableObject, Identifiable {
     let id = UUID()
     @Published var nodeName: String = ""
     @Published var properties: [SwiftNodeProperties] = []
-    @Published var childNodes: [SwiftNode] = []
+    @Published var isPublic = true
+    @Published var isArray = false
+    @Published var generateTest = true
+    @Published var snakeCase = false
 
-    
     fileprivate func swiftHeader(_ swiftString: inout String) {
-        let date : Date = Date()
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MMM dd, yyyy"
-        let todaysDate = dateFormatter.string(from: date)
+        let todaysDate = dateFormatter.string(from: Date())
         swiftString += "//" + "\n"
         swiftString += "// \(nodeName).swift" + "\n"
         swiftString += "//" + "\n"
@@ -59,12 +60,16 @@ class SwiftNode:ObservableObject, Identifiable {
     }
     
     fileprivate func swiftStruct(_ swiftString: inout String, props: [SwiftNodeProperties]) {
-        swiftString += "public struct \(nodeName): Codable {" + "\n\n"
+        swiftString += "\(isPublic ? "public " : "")struct \(nodeName): Codable {" + "\n\n"
         props.forEach {
-            swiftString += "\t\($0.isVar ? "var" : "let") \($0.hasCodingKey ? $0.codingKey : $0.propertyName): \(swiftDec(prop: $0))\($0.isOptional ? "?" : "") " + "\n"
+            swiftString += "\tpublic \($0.isVar ? "var" : "let") \($0.hasCodingKey ? $0.codingKey : $0.propertyName): \(swiftDec(prop: $0))\($0.isOptional ? "?" : "") " + "\n"
         }
-        swiftCodingKeys(&swiftString)
+        ///If any of our properties has a coding key then add them to struct.
+        if properties.contains(where: {$0.hasCodingKey == true }) {
+            swiftCodingKeys(&swiftString)
+        }
         swiftString += "}" + "\n\n"
+        ///If any node has a child node then add them.
         props.forEach {
             if let child = $0.childNode {
                 child.swiftStruct(&swiftString,props: child.properties)
@@ -79,28 +84,58 @@ class SwiftNode:ObservableObject, Identifiable {
             swiftString += "\($0.hasCodingKey ? "" : $0.propertyName + ",") "
         }
         swiftString.removeLast(2)
-        swiftString += "\t\n\n"
-        properties.forEach {
-            if $0.hasCodingKey {
-                swiftString += "\tcase \($0.propertyName) = \"\($0.codingKey)\" \n"
+        swiftString += "\t\n"
+            properties.forEach {
+                if $0.hasCodingKey {
+                    swiftString += "\tcase \($0.propertyName) = \"\($0.codingKey)\" \n"
+                }
             }
-        }
-        swiftString += "\t}" + "\n"
+            swiftString += "\t}" + "\n"
     }
     
     func generateSwiftCode() -> String {
         var swiftString = ""
         swiftHeader(&swiftString)
-        
         swiftStruct(&swiftString,props: properties)
+        /// Add in test or code to process the json into the structure.
+        if (generateTest) {
+            swiftString += generateTestCode()
+        }
          return swiftString
+    }
+    
+    func generateTestCode() -> String {
+        let nodes = isArray ? "[\(nodeName)]" : "\(nodeName)"
+        let snakes = snakeCase ? "decoder.keyDecodingStrategy = .convertFromSnakeCase" : ""
+        let testString = """
+
+    /// Probably want to move this somewhere else and add in some more code!
+
+    public struct fetchRequests {
+        public init() {
+        }
+    }
+
+    /// As here we add an extension to the above for the \(nodeName) processing
+    \n\nextension fetchRequests {
+
+        public func fetch\(nodeName)(jsonString: String) -> \(nodes) {
+            let decoder = JSONDecoder()
+            let jsonData = jsonString.data(using: .utf8)!
+            \(snakes)
+            let parseJson: \(nodes) = try! decoder.decode(\(nodes).self, from: jsonData)
+            return parseJson
+        }
+    }\n\n
+"""
+        
+        return testString
     }
 }
 
 class SwiftNodeProperties:ObservableObject, Identifiable {
     let id = UUID()
     @Published var propertyName: String = ""
-    @Published var propertySample: String = ""
     @Published var propertyType: SwiftType = .String
     @Published var isOptional: Bool = false
     @Published var isVar: Bool = false
@@ -108,36 +143,6 @@ class SwiftNodeProperties:ObservableObject, Identifiable {
     @Published var codingKey: String = ""
     @Published var dateFormat: String = ""
     @Published var childNode: SwiftNode?
-}
-
-extension String {
-    var isInt: Bool {
-        return Int(self) != nil && self.count < 7
-    }
-}
-extension String {
-    var isDouble: Bool {
-        if !self.contains(".") { return false }
-        return Double(self) != nil
-    }
-}
-
-extension String {
-    var isBool: Bool {
-        return self == "false" || self == "true"
-    }
-}
-
-extension String {
-    var isNull: Bool {
-        return self == "" || self == "null"
-    }
-}
-
-extension String {
-    var isURL: Bool {
-        return self.starts(with: "HTTP")
-    }
 }
 
 extension String {

@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     @Binding var document: JSONSwiftExporterDocument
     @StateObject private var appManager = AppManager(swiftDocument: SwiftDocument())
-
+    
     @State var isLoaded = false
     @State var isParsed = false
     
@@ -20,74 +20,71 @@ struct ContentView: View {
             HStack{
                 VStack {
                     Spacer()
-                    TextEditor(text: $document.text)
+                    TextEditor(text: $document.text).multilineTextAlignment(.leading)
+                        .font(Font.custom("Courier", size: 14).monospacedDigit())
                     Spacer()
                     Button("Parse JSON") {
                         if let filename = document.fileName {
                             print("Fliename \(filename)")
                             appManager.swiftNode.nodeName = filename.components(separatedBy:".")[0].capitalizingFirstLetter()
                         }
-                        //manager.swiftDocument.text = document.getDictionary().description
-                        document.parseJSONData(swiftClass: appManager.swiftNode)
-                        appManager.swiftDocument.text = appManager.swiftNode.generateSwiftCode()
-                        isParsed = true
-                        isLoaded = true
+                        if (document.parseJSON(swiftClass: appManager.swiftNode)) {
+                            appManager.swiftDocument.text = appManager.swiftNode.generateSwiftCode()
+                            isParsed = true
+                            isLoaded = true
+                        } else {
+                            print("Couldn't parse json")
+                        }
                     }
                     Spacer()
                 }
                 Spacer()
-
+                
                 VStack {
-                    SwiftNodeHeader(manager: appManager)
                     Spacer()
                     if (isLoaded) {
+                        SwiftNodeHeader(manager: appManager)
                         Text("Properties").font(.title)
                             .frame(maxWidth: .infinity, alignment: .leading)
+                        List {
+                            ListNode(node: $appManager.swiftNode)
+                        }
+                    } else {
+                        VStack {
+                            HStack {
+                                Text("Welcome to JSONSwiftExporter").foregroundColor(.white).font(.title)
+                            }.background(.yellow)
+                            Spacer()
+                        }
                     }
-                    List {
-                        ForEach($appManager.swiftNode.properties) { prop in
-                            SwiftNodeItem(manager: appManager, property: prop)
-//                            ForEach(prop.childProperties) { prop2 in
-//                                    SwiftClassItem(manager: manager, property: prop2)
-//                                }
-                        }.background(.background)
-                    }.padding(0)
+                        Spacer()
+                        Button("Regenerate Class") {
+                            appManager.swiftDocument.text = appManager.swiftNode.generateSwiftCode()
+                            isParsed = true
+                        }.disabled(!isLoaded)
+                        Spacer()
+                    }
                     Spacer()
-                    Button("Regenerate Class") {
-                        appManager.swiftDocument.text = appManager.swiftNode.generateSwiftCode()
-                        isParsed = true
-                    }.disabled(!isLoaded)
-                    Spacer()
-
+                    VStack {
+                        TextEditor(text: $appManager.swiftDocument.text).multilineTextAlignment(.leading)
+                            .font(Font.custom("Courier", size: 14).monospacedDigit())
+                        Spacer()
+                        Button("Save Swift File") {
+                            appManager.swiftDocument.text = appManager.swiftNode.generateSwiftCode()
+                        }.disabled(!isParsed)
+                        Spacer()
+                    }
                 }
                 Spacer()
-                VStack {
-                    TextEditor(text: $appManager.swiftDocument.text).multilineTextAlignment(.leading)
-                        .font(Font.custom("Courier", size: 14).monospacedDigit())
-                    Spacer()
-                    Button("Save Swift File") {
-                        appManager.swiftDocument.text = appManager.swiftNode.generateSwiftCode()
-                    }.disabled(!isParsed)
-                    Spacer()
-                }
+            }.onAppear{
+                //manager = AppManager(swiftDocument: SwiftDocument(text: ""))
             }
-//            HStack{
-//                Spacer()
-//                Button("Generate Class") {
-//                    manager.swiftDocument.text = manager.swiftClass.generateSwiftCode()
-//                }
-//                Spacer()
-//            }
-            Spacer()
-        }.onAppear{
-            //manager = AppManager(swiftDocument: SwiftDocument(text: ""))
         }
     }
-}
-
-//struct ContentView_Previews: PreviewProvider {
-//    //@EnvironmentObject var manager: AppManager
-//    static var previews: some View {
-//        ContentView()
-//    }
-//}
+    
+    //struct ContentView_Previews: PreviewProvider {
+    //    //@EnvironmentObject var manager: AppManager
+    //    static var previews: some View {
+    //        ContentView()
+    //    }
+    //}

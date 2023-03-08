@@ -46,7 +46,43 @@ struct JSONSwiftExporterDocument: FileDocument {
         return .init(regularFileWithContents: data)
     }
     
-    func parseJSONData(swiftClass: SwiftNode) {
+    /// JSON may be in array [] format or dictionary {}
+    /// If Array we only need to parse the first node of it
+    /// If dictionary we just parse it.
+    /// A dictionary may contain an array but thats fine.
+    ///
+    func parseJSON(swiftClass: SwiftNode) -> Bool {
+        return text.components(separatedBy:"{")[0].contains("[") ?
+            parseJSONDataArray(swiftClass: swiftClass) :
+                parseJSONData(swiftClass: swiftClass)
+    }
+
+    
+    func parseJSONDataArray(swiftClass: SwiftNode) -> Bool {
+        swiftClass.isArray = true
+        var returnProperties: [SwiftNodeProperties] = []
+        let data = Data(text.utf8)
+        if let json = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [[String: Any]] {
+            for jKey in json[0].keys {
+                if let keyData = json[0][jKey] {
+                    let returnProp = SwiftNodeProperties()
+                    print("Key \(jKey) \(type(of: keyData)) ")
+                    returnProp.propertyName = jKey
+                    returnProp.codingKey = jKey
+                    
+                    returnProperties.append(match(keyData,properties: returnProp,swiftClass: swiftClass))
+                }
+            }
+            swiftClass.properties = returnProperties
+            return true
+        } else {
+            return false
+//            let a = Alert(title: Text("Could not Parse JSON."))
+            
+        }
+    }
+    func parseJSONData(swiftClass: SwiftNode) -> Bool {
+        swiftClass.isArray = false
         var returnProperties: [SwiftNodeProperties] = []
         let data = Data(text.utf8)
         if let json = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] {
@@ -61,6 +97,11 @@ struct JSONSwiftExporterDocument: FileDocument {
                 }
             }
             swiftClass.properties = returnProperties
+            return true
+        } else {
+            return false
+//            let a = Alert(title: Text("Could not Parse JSON."))
+            
         }
     }
     

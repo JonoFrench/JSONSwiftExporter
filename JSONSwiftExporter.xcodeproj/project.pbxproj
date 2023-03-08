@@ -30,6 +30,8 @@
 		34AE275029B0AF8200D42CDB /* accountList.json in Resources */ = {isa = PBXBuildFile; fileRef = 34AE274E29B0AF8200D42CDB /* accountList.json */; };
 		34AE275229B0B00C00D42CDB /* donuts.json in Resources */ = {isa = PBXBuildFile; fileRef = 34AE275129B0B00C00D42CDB /* donuts.json */; };
 		34AE275329B0B00C00D42CDB /* donuts.json in Resources */ = {isa = PBXBuildFile; fileRef = 34AE275129B0B00C00D42CDB /* donuts.json */; };
+		34AE275529B7B5C800D42CDB /* ListNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AE275429B7B5C800D42CDB /* ListNode.swift */; };
+		34AE275729B8B06C00D42CDB /* ListNodeHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AE275629B8B06C00D42CDB /* ListNodeHeader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +73,8 @@
 		34AE274B29AFC8F600D42CDB /* testcode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testcode.swift; sourceTree = "<group>"; };
 		34AE274E29B0AF8200D42CDB /* accountList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = accountList.json; sourceTree = "<group>"; };
 		34AE275129B0B00C00D42CDB /* donuts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = donuts.json; sourceTree = "<group>"; };
+		34AE275429B7B5C800D42CDB /* ListNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListNode.swift; sourceTree = "<group>"; };
+		34AE275629B8B06C00D42CDB /* ListNodeHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListNodeHeader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,11 +134,13 @@
 				34AE271A29A8FAC700D42CDB /* JSONSwiftExporter.entitlements */,
 				34AE271629A8FAC700D42CDB /* Preview Content */,
 				34AE273C29A8FED200D42CDB /* SwiftDocument.swift */,
+				34AE275629B8B06C00D42CDB /* ListNodeHeader.swift */,
 				34AE273F29A9036400D42CDB /* AppManager.swift */,
 				34AE274229AB925900D42CDB /* SwiftNode.swift */,
 				34AE274529AB931500D42CDB /* SwiftNodeHeader.swift */,
 				34AE274829AB934B00D42CDB /* SwiftNodeItem.swift */,
 				34AE274B29AFC8F600D42CDB /* testcode.swift */,
+				34AE275429B7B5C800D42CDB /* ListNode.swift */,
 			);
 			path = JSONSwiftExporter;
 			sourceTree = "<group>";
@@ -308,7 +314,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				34AE271129A8FAC300D42CDB /* JSONSwiftExporterDocument.swift in Sources */,
+				34AE275529B7B5C800D42CDB /* ListNode.swift in Sources */,
 				34AE274929AB934B00D42CDB /* SwiftNodeItem.swift in Sources */,
+				34AE275729B8B06C00D42CDB /* ListNodeHeader.swift in Sources */,
 				34AE274629AB931500D42CDB /* SwiftNodeHeader.swift in Sources */,
 				34AE274029A9036400D42CDB /* AppManager.swift in Sources */,
 				34AE274329AB925900D42CDB /* SwiftNode.swift in Sources */,
