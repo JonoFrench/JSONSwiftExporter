@@ -32,6 +32,8 @@
 		34AE275329B0B00C00D42CDB /* donuts.json in Resources */ = {isa = PBXBuildFile; fileRef = 34AE275129B0B00C00D42CDB /* donuts.json */; };
 		34AE275529B7B5C800D42CDB /* ListNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AE275429B7B5C800D42CDB /* ListNode.swift */; };
 		34AE275729B8B06C00D42CDB /* ListNodeHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AE275629B8B06C00D42CDB /* ListNodeHeader.swift */; };
+		34AE275929B96A3200D42CDB /* snake.json in Resources */ = {isa = PBXBuildFile; fileRef = 34AE275829B96A3200D42CDB /* snake.json */; };
+		34AE275B29BA572400D42CDB /* SwiftNodeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AE275A29BA572400D42CDB /* SwiftNodeExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +77,8 @@
 		34AE275129B0B00C00D42CDB /* donuts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = donuts.json; sourceTree = "<group>"; };
 		34AE275429B7B5C800D42CDB /* ListNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListNode.swift; sourceTree = "<group>"; };
 		34AE275629B8B06C00D42CDB /* ListNodeHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListNodeHeader.swift; sourceTree = "<group>"; };
+		34AE275829B96A3200D42CDB /* snake.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = snake.json; sourceTree = "<group>"; };
+		34AE275A29BA572400D42CDB /* SwiftNodeExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftNodeExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +138,7 @@
 				34AE271A29A8FAC700D42CDB /* JSONSwiftExporter.entitlements */,
 				34AE271629A8FAC700D42CDB /* Preview Content */,
 				34AE273C29A8FED200D42CDB /* SwiftDocument.swift */,
+				34AE275A29BA572400D42CDB /* SwiftNodeExtensions.swift */,
 				34AE275629B8B06C00D42CDB /* ListNodeHeader.swift */,
 				34AE273F29A9036400D42CDB /* AppManager.swift */,
 				34AE274229AB925900D42CDB /* SwiftNode.swift */,
@@ -173,6 +178,7 @@
 		34AE274D29B0AF6200D42CDB /* TestJson */ = {
 			isa = PBXGroup;
 			children = (
+				34AE275829B96A3200D42CDB /* snake.json */,
 				34AE275129B0B00C00D42CDB /* donuts.json */,
 				34AE274E29B0AF8200D42CDB /* accountList.json */,
 			);
@@ -285,6 +291,7 @@
 			files = (
 				34AE275229B0B00C00D42CDB /* donuts.json in Resources */,
 				34AE271829A8FAC700D42CDB /* Preview Assets.xcassets in Resources */,
+				34AE275929B96A3200D42CDB /* snake.json in Resources */,
 				34AE274F29B0AF8200D42CDB /* accountList.json in Resources */,
 				34AE271529A8FAC700D42CDB /* Assets.xcassets in Resources */,
 			);
@@ -320,6 +327,7 @@
 				34AE274629AB931500D42CDB /* SwiftNodeHeader.swift in Sources */,
 				34AE274029A9036400D42CDB /* AppManager.swift in Sources */,
 				34AE274329AB925900D42CDB /* SwiftNode.swift in Sources */,
+				34AE275B29BA572400D42CDB /* SwiftNodeExtensions.swift in Sources */,
 				34AE273D29A8FED200D42CDB /* SwiftDocument.swift in Sources */,
 				34AE270F29A8FAC300D42CDB /* JSONSwiftExporterApp.swift in Sources */,
 				34AE271329A8FAC300D42CDB /* ContentView.swift in Sources */,

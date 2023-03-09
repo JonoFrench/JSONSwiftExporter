@@ -29,6 +29,7 @@ struct ContentView: View {
                             appManager.swiftNode.nodeName = filename.components(separatedBy:".")[0].capitalizingFirstLetter()
                         }
                         if (document.parseJSON(swiftClass: appManager.swiftNode)) {
+                            appManager.swiftNode.testJson = document.text
                             appManager.swiftDocument.text = appManager.swiftNode.generateSwiftCode()
                             isParsed = true
                             isLoaded = true
@@ -59,8 +60,14 @@ struct ContentView: View {
                     }
                         Spacer()
                         Button("Regenerate Class") {
-                            appManager.swiftDocument.text = appManager.swiftNode.generateSwiftCode()
-                            isParsed = true
+                            appManager.swiftNode.testJson = document.text
+                            if (document.parseJSON(swiftClass: appManager.swiftNode)) {
+                                appManager.swiftDocument.text = appManager.swiftNode.generateSwiftCode()
+                                isParsed = true
+                            } else {
+                                isParsed = false
+                                isLoaded = false
+                            }
                         }.disabled(!isLoaded)
                         Spacer()
                     }
@@ -70,7 +77,9 @@ struct ContentView: View {
                             .font(Font.custom("Courier", size: 14).monospacedDigit())
                         Spacer()
                         Button("Save Swift File") {
-                            appManager.swiftDocument.text = appManager.swiftNode.generateSwiftCode()
+//                            appManager.swiftDocument.text = appManager.swiftNode.generateSwiftCode()
+                            print("\(appManager.swiftNode.nodeName).swift")
+                            appManager.swiftDocument.saveDoc(filename: "\(appManager.swiftNode.nodeName).swift")
                         }.disabled(!isParsed)
                         Spacer()
                     }

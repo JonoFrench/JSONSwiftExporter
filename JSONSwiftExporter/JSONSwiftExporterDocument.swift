@@ -67,8 +67,8 @@ struct JSONSwiftExporterDocument: FileDocument {
                 if let keyData = json[0][jKey] {
                     let returnProp = SwiftNodeProperties()
                     print("Key \(jKey) \(type(of: keyData)) ")
-                    returnProp.propertyName = jKey
-                    returnProp.codingKey = jKey
+                    returnProp.propertyName = swiftClass.snakeCase ? jKey.camelCased : jKey
+                    returnProp.codingKey = returnProp.propertyName
                     
                     returnProperties.append(match(keyData,properties: returnProp,swiftClass: swiftClass))
                 }
@@ -90,8 +90,8 @@ struct JSONSwiftExporterDocument: FileDocument {
                 if let keyData = json[jKey] {
                     let returnProp = SwiftNodeProperties()
                     print("Key \(jKey) \(type(of: keyData)) ")
-                    returnProp.propertyName = jKey
-                    returnProp.codingKey = jKey
+                    returnProp.propertyName = swiftClass.snakeCase ? jKey.camelCased : jKey
+                    returnProp.codingKey = returnProp.propertyName
                     
                     returnProperties.append(match(keyData,properties: returnProp,swiftClass: swiftClass))
                 }

@@ -14,20 +14,12 @@ struct ListNode: View {
         ForEach($node.properties) { prop in
             SwiftNodeItem(property: prop)
         }
-        
-        ForEach($node.properties) { prop in
-            if let child = prop.childNode {
-                let b = Binding(child)
-                if let c = b {
-                    ListNode(node: c)
-                }
+        /// This function requires a Binding on SwiftNode, now the properties can have an optional child SwiftNode
+        /// so we have to change the optional to a non optional Bound variable to iterate the tree of child nodes.
+        ForEach($node.properties) { property in
+            if let boundChild = Binding(property.childNode) {
+                ListNode(node: boundChild)
             }
         }
     }
 }
-
-//struct ListNode_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ListNode()
-//    }
-//}

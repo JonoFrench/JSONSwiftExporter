@@ -52,9 +52,13 @@ struct SwiftNodeItem: View {
                 Spacer()
                 Toggle("Optional", isOn: $property.isOptional)
                     .foregroundColor(.white)
+                    .padding(.trailing)
+                    .frame(maxWidth: .infinity, alignment: .leading)
                 Spacer()
                 Toggle("Var", isOn: $property.isVar)
                     .foregroundColor(.white)
+                    .padding(.trailing)
+                    .frame(maxWidth: .infinity, alignment: .leading)
                 Spacer()
             }
             Spacer()

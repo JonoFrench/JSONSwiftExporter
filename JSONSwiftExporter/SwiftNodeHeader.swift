@@ -19,11 +19,31 @@ struct SwiftNodeHeader: View {
                 Spacer()
             }
         }.background(.gray)
-        Toggle("public", isOn: $manager.swiftNode.isPublic)
-            .foregroundColor(.black)
-            .padding(.trailing)
-            .frame(maxWidth: .infinity, alignment: .leading)
+        HStack {
+            Toggle("public", isOn: $manager.swiftNode.isPublic)
+                .foregroundColor(.black)
+                .padding(.trailing)
+                .frame(maxWidth: .infinity, alignment: .leading)
+            Spacer()
+            Toggle("Convert from snake_case", isOn: $manager.swiftNode.snakeCase)
+                .foregroundColor(.black)
+                .padding(.trailing)
+                .frame(maxWidth: .infinity, alignment: .leading)
+            Spacer()
+        }
         Spacer()
+        HStack {
+            Toggle("Add fetch request", isOn: $manager.swiftNode.addFetch)
+                .foregroundColor(.black)
+                .padding(.trailing)
+                .frame(maxWidth: .infinity, alignment: .leading)
+            Spacer()
+            Toggle("Add playground code", isOn: $manager.swiftNode.generateTest)
+                .foregroundColor(.black)
+                .padding(.trailing)
+                .frame(maxWidth: .infinity, alignment: .leading)
+            Spacer()
+        }
 
     }
 }
